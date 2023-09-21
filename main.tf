@@ -6,9 +6,9 @@ terraform {
     }
   }
 
-  backend "kubernetes" {
-    secret_suffix = "okteto"
-  }
+  # backend "kubernetes" {
+  #   secret_suffix = "okteto"
+  # }
 
   required_version = ">= 1.2.0"
 }
