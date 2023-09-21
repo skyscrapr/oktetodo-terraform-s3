@@ -26,7 +26,7 @@ variable "bucket_name" {
 variable "region" {
   description = "AWS region"
   type        = string
-  default     = "eu-north-1"
+  default     = "eu-west-1"
 }
 
 provider "aws" {
