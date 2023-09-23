@@ -10,7 +10,7 @@ locals {
 
 resource "aws_s3_bucket" "tf_state" {
   bucket = "tfstate-${local.account_id}"
- 
+  force_destroy = true 
   # Prevent accidental deletion of this S3 bucket
 #   lifecycle {
 #     prevent_destroy = true
