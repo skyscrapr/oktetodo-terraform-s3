@@ -9,7 +9,7 @@ deploy:
   - name: Create the AWS S3 Bucket
     command: |
       set -e
-      resourceName="${OKTETO_NAMESPACE}-oktetodo"
+      resourceName="${OKTETO_NAMESPACE}-test-oktetodo"
       
       export KUBE_CONFIG_PATH="$KUBECONFIG"
       export KUBE_NAMESPACE=$OKTETO_NAMESPACE
