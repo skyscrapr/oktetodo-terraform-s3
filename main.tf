@@ -10,7 +10,16 @@ terraform {
   #   secret_suffix = "okteto"
   # }
 
-  required_version = ">= 1.2.0"
+  backend "s3" {
+    # Replace this with your bucket name!
+    bucket         = "tfstate-219858395663"
+    key            = "oktetodo/terraform.tfstate"
+    region         = "us-west-1"
+
+    # Replace this with your DynamoDB table name!
+    dynamodb_table = "tfstate-219858395663"
+    encrypt        = true
+  }
 }
 
 variable "bucket_name" {
