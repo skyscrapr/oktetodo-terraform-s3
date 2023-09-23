@@ -9,7 +9,7 @@ deploy:
   - name: Create the AWS S3 Bucket
     command: |
       set -e
-      resourceName="${OKTETO_NAMESPACE}-test-oktetodo"
+      resourceName="${OKTETO_NAMESPACE}-tf-oktetodo"
       
       export KUBE_CONFIG_PATH="$KUBECONFIG"
       export KUBE_NAMESPACE=$OKTETO_NAMESPACE
@@ -39,13 +39,12 @@ destroy:
   - name: Delete the AWS infrastructure
     command: |
       set -e
-      resourceName="${OKTETO_NAMESPACE}-test-oktetodo"
-      region=eu-north-1
+      resourceName="${OKTETO_NAMESPACE}-tf-oktetodo"
       
       export KUBE_CONFIG_PATH="$KUBECONFIG"
       export KUBE_NAMESPACE=$OKTETO_NAMESPACE
       terraform init -input=false
-      terraform apply -input=false -var "bucket_name=$resourceName" -var "region=$region" -auto-approve --destroy
+      terraform apply -input=false -var "bucket_name=$resourceName" -var "region=$AWS_REGION" -auto-approve --destroy
 
 external:
   s3:
