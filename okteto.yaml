@@ -39,7 +39,7 @@ destroy:
   - name: Delete the AWS infrastructure
     command: |
       set -e
-      resourceName="${OKTETO_NAMESPACE}-oktetodo"
+      resourceName="${OKTETO_NAMESPACE}-test-oktetodo"
       region=eu-north-1
       
       export KUBE_CONFIG_PATH="$KUBECONFIG"
